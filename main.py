@@ -10,10 +10,18 @@ import json
 import requests
 import os
 from datetime import datetime, timedelta
+import config
+from config import username
 
+userName = config.username
+password = config.password
 
 options = Options()
 driver = webdriver.Chrome(options=options, service=Service(ChromeDriverManager().install()))
 driver.get('http://www.naukri.com')
+login = driver.find_element(By.ID, 'login_Layer')
+if login:
+
+    login.click()
 time.sleep(3)
 # driver.quit()
