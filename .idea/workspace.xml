@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c3d21fe6-fc90-4b57-9df6-88d1995fa59e" name="Changes" comment="auto id pass feature added">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-    </list>
+    <list default="true" id="c3d21fe6-fc90-4b57-9df6-88d1995fa59e" name="Changes" comment="working on the upload option" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -109,7 +105,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734718594906</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="working on the upload option">
+      <option name="closed" value="true" />
+      <created>1734725575295</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1734725575295</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -128,6 +132,7 @@
     <MESSAGE value="webdriver loaded" />
     <MESSAGE value="credentials added" />
     <MESSAGE value="auto id pass feature added" />
-    <option name="LAST_COMMIT_MESSAGE" value="auto id pass feature added" />
+    <MESSAGE value="working on the upload option" />
+    <option name="LAST_COMMIT_MESSAGE" value="working on the upload option" />
   </component>
 </project>
