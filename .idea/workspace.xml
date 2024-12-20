@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c3d21fe6-fc90-4b57-9df6-88d1995fa59e" name="Changes" comment="credentials added">
+    <list default="true" id="c3d21fe6-fc90-4b57-9df6-88d1995fa59e" name="Changes" comment="auto id pass feature added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
@@ -101,7 +101,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734637559924</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="auto id pass feature added">
+      <option name="closed" value="true" />
+      <created>1734718594906</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1734718594906</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -119,6 +127,7 @@
     <MESSAGE value="script created" />
     <MESSAGE value="webdriver loaded" />
     <MESSAGE value="credentials added" />
-    <option name="LAST_COMMIT_MESSAGE" value="credentials added" />
+    <MESSAGE value="auto id pass feature added" />
+    <option name="LAST_COMMIT_MESSAGE" value="auto id pass feature added" />
   </component>
 </project>
