@@ -7,12 +7,17 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
 import time
+from dotenv import load_dotenv
 import config
 def loginNaukri():
     pass
 
-user = config.username
-pwd = config.password
+load_dotenv()
+user = os.getenv('username')
+pwd = os.getenv("password")
+
+# user = config.username
+# pwd = config.password
 url = "https://www.naukri.com/nlogin/login"
 cv = "smb://Cosmos._smb._tcp.local/NAS/Documents/MS/Resume/Naukari.com Resume/India/resume_arpit.pdf"
 
