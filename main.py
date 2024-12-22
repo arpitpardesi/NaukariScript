@@ -48,7 +48,6 @@ user = config.username
 pwd = config.password
 
 url = "https://www.naukri.com/nlogin/login"
-# cv = "smb://Cosmos._smb._tcp.local/NAS/Documents/MS/Resume/Naukari.com Resume/India/resume_arpit.pdf"
 cv = "/Users/arpitpardesi/Naukri.com Resume/India/resume_arpit.pdf"
 
 options = Options()
