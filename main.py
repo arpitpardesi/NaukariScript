@@ -9,15 +9,18 @@ from selenium.webdriver.chrome.options import Options
 import time
 from dotenv import load_dotenv
 import config
+
 def loginNaukri():
     pass
 
 load_dotenv()
+
 user = os.getenv('username')
 pwd = os.getenv("password")
 
 # user = config.username
 # pwd = config.password
+
 url = "https://www.naukri.com/nlogin/login"
 cv = "smb://Cosmos._smb._tcp.local/NAS/Documents/MS/Resume/Naukari.com Resume/India/resume_arpit.pdf"
 
