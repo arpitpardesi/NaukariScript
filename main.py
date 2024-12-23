@@ -1,4 +1,5 @@
 import os
+from contextlib import nullcontext
 
 from selenium import webdriver
 from selenium.webdriver import Keys
@@ -7,85 +8,101 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
 import time
-from dotenv import load_dotenv
 import config
 
-def loginNaukri(url, config):
 
-    options = Options()
-    driver = webdriver.Chrome(options=options, service=Service(ChromeDriverManager().install()))
-    driver.get(url)
+def loginNaukri(config, siteConfig):
+    driver.get(siteConfig.get("url"))
     time.sleep(2)
 
-    username = driver.find_element(By.ID, 'usernameField')
+    username = driver.find_element(By.ID, siteConfig.get('userID'))
     if username:
         # username.clear()
         username.send_keys(config.username)
 
-    password = driver.find_element(By.ID, 'passwordField')
+    password = driver.find_element(By.ID, siteConfig.get("passID"))
     if password:
         # password.clear()
         password.send_keys(config.password)
         password.send_keys(Keys.RETURN)
+
+        # if siteConfig['submitId']:
+        #     submit = driver.find_element(By.ID, siteConfig.get("submitId"))
+        #     if submit:
+        #         # password.clear()
+        #         submit.send_keys(Keys.RETURN)
+        # else:
+        #     password.send_keys(Keys.RETURN)
     time.sleep(3)
 
-def navigateProfile():
-    driver.get('https://www.naukri.com/mnjuser/profile')
+
+def navigateProfile(profileUrl):
+    driver.get(profileUrl)
     time.sleep(2)
 
-def uploadCV(cv):
-    uploadCV = driver.find_element(By.ID, 'attachCV')
+
+def uploadCV(siteConfig):
+    uploadCV = driver.find_element(By.ID, siteConfig.get('upload'))
     # uploadCV = driver.find_element(By.ID, 'result')
     if uploadCV:
         try:
-            uploadCV.send_keys(cv)
+            uploadCV.send_keys(siteConfig.get("cv"))
             time.sleep(5)
-            print(f"Resume uploaded successfully from {cv}!")
+            print(f"Resume uploaded successfully from {siteConfig.get('cv')}!")
         except:
             print("Unable to find the Resume upload input field!")
 
+
+def naukri():
+    siteConfig = {"url": "https://www.naukri.com/nlogin/login",
+                  "cv": "/Users/arpitpardesi/Naukri.com Resume/India/resume_arpit.pdf",
+                  "profileUrl": "https://www.naukri.com/mnjuser/profile",
+                  "userID": "usernameField",
+                  "passID": "passwordField",
+                  "upload": "attachCV",
+                  "submitId":""}
+
+    loginNaukri(config=config, siteConfig=siteConfig)
+    navigateProfile(profileUrl=siteConfig.get("profileUrl"))
+    uploadCV(siteConfig=siteConfig)
+
+    driver.quit()
+
+
+def naukriGulf():
+    siteConfig = {"url": "https://www.naukrigulf.com/jobseeker/login",
+                  "cv": "/Users/arpitpardesi/Naukri.com Resume/Abroad/resume_arpit.pdf",
+                  "profileUrl": "https://www.naukrigulf.com/mnj/userProfile/myCV",
+                  "userID": "loginPageLoginEmail",
+                  "passID": "loginPassword",
+                  "submitId": "loginPageLoginSubmit",
+                  "upload": "attachCV"}
+
+    loginNaukri(config=config, siteConfig=siteConfig)
+    # navigateProfile(profileUrl=siteConfig.get("profileUrl"))
+    # uploadCV(siteConfig=siteConfig)
+
+    driver.quit()
+
+
 user = config.username
 pwd = config.password
-
-url = "https://www.naukri.com/nlogin/login"
-cv = "/Users/arpitpardesi/Naukri.com Resume/India/resume_arpit.pdf"
-
 options = Options()
-# options.add_argument("--headless")
 driver = webdriver.Chrome(options=options, service=Service(ChromeDriverManager().install()))
-driver.get(url)
+
+naukriGulf()
+
+# url = "https://www.naukri.com/nlogin/login"
+# cv = "/Users/arpitpardesi/Naukri.com Resume/India/resume_arpit.pdf"
+
+# options = Options()
+# # options.add_argument("--headless")
+# driver = webdriver.Chrome(options=options, service=Service(ChromeDriverManager().install()))
+# driver.get(url)
 
 # login = driver.find_element(By.ID, 'login_Layer')
 # if login:
 #     login.click()
 # time.sleep(3)
-
-username = driver.find_element(By.ID, 'usernameField')
-if username:
-    # username.clear()
-    username.send_keys(user)
-
-password = driver.find_element(By.ID, 'passwordField')
-if password:
-    # password.clear()
-    password.send_keys(pwd)
-    password.send_keys(Keys.RETURN)
-time.sleep(3)
-
-driver.get('https://www.naukri.com/mnjuser/profile')
-# submit = driver.find_element(By.ID, 'g-recaptcha')
-# # submit = driver.find_element(By.ID, 'btn-login')
-# if submit:
-#     submit.click()
-time.sleep(2)
-uploadCV = driver.find_element(By.ID, 'attachCV')
-# uploadCV = driver.find_element(By.ID, 'result')
-if uploadCV:
-    try:
-        uploadCV.send_keys(cv)
-        time.sleep(5)
-        print(f"Resume uploaded successfully from {cv}!")
-    except:
-        print("Unable to find the Resume upload input field!")
 
 driver.quit()
