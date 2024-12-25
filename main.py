@@ -15,25 +15,28 @@ def loginNaukri(config, siteConfig):
     driver.get(siteConfig.get("url"))
     time.sleep(2)
 
-    username = driver.find_element(By.ID, siteConfig.get('userID'))
-    if username:
-        # username.clear()
-        username.send_keys(config.username)
+    try:
+        username = driver.find_element(By.ID, siteConfig.get('userID'))
+        if username:
+            # username.clear()
+            username.send_keys(config.username)
 
-    password = driver.find_element(By.ID, siteConfig.get("passID"))
-    if password:
-        # password.clear()
-        password.send_keys(config.password)
-        password.send_keys(Keys.RETURN)
+        password = driver.find_element(By.ID, siteConfig.get("passID"))
+        if password:
+            # password.clear()
+            password.send_keys(config.password)
 
-        # if siteConfig['submitId']:
-        #     submit = driver.find_element(By.ID, siteConfig.get("submitId"))
-        #     if submit:
-        #         # password.clear()
-        #         submit.send_keys(Keys.RETURN)
-        # else:
-        #     password.send_keys(Keys.RETURN)
-    time.sleep(3)
+            password.send_keys(Keys.RETURN)
+            time.sleep(5)
+            # if siteConfig['submitId']:
+            #     submit = driver.find_element(By.ID, siteConfig.get("submitId"))
+            #     if submit:
+            #         # password.clear()
+            #         submit.send_keys(Keys.RETURN)
+            # else:
+            #     password.send_keys(Keys.RETURN)
+    except:
+        pass
 
 
 def navigateProfile(profileUrl):
@@ -60,7 +63,7 @@ def naukri():
                   "userID": "usernameField",
                   "passID": "passwordField",
                   "upload": "attachCV",
-                  "submitId":""}
+                  "submitId": ""}
 
     loginNaukri(config=config, siteConfig=siteConfig)
     navigateProfile(profileUrl=siteConfig.get("profileUrl"))
@@ -76,7 +79,7 @@ def naukriGulf():
                   "userID": "loginPageLoginEmail",
                   "passID": "loginPassword",
                   "submitId": "loginPageLoginSubmit",
-                  "upload": "attachCV"}
+                  "upload": "resumeSection"}
 
     loginNaukri(config=config, siteConfig=siteConfig)
     navigateProfile(profileUrl=siteConfig.get("profileUrl"))
@@ -90,19 +93,7 @@ pwd = config.password
 options = Options()
 driver = webdriver.Chrome(options=options, service=Service(ChromeDriverManager().install()))
 
-naukriGulf()
-
-# url = "https://www.naukri.com/nlogin/login"
-# cv = "/Users/arpitpardesi/Naukri.com Resume/India/resume_arpit.pdf"
-
-# options = Options()
-# # options.add_argument("--headless")
-# driver = webdriver.Chrome(options=options, service=Service(ChromeDriverManager().install()))
-# driver.get(url)
-
-# login = driver.find_element(By.ID, 'login_Layer')
-# if login:
-#     login.click()
-# time.sleep(3)
+naukri()
+# naukriGulf()
 
 driver.quit()
