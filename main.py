@@ -79,8 +79,8 @@ def naukriGulf():
                   "upload": "attachCV"}
 
     loginNaukri(config=config, siteConfig=siteConfig)
-    # navigateProfile(profileUrl=siteConfig.get("profileUrl"))
-    # uploadCV(siteConfig=siteConfig)
+    navigateProfile(profileUrl=siteConfig.get("profileUrl"))
+    uploadCV(siteConfig=siteConfig)
 
     driver.quit()
 
