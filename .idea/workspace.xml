@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c3d21fe6-fc90-4b57-9df6-88d1995fa59e" name="Changes" comment="naukri gulneeds to be updatedf, need to fix credentials file">
+    <list default="true" id="c3d21fe6-fc90-4b57-9df6-88d1995fa59e" name="Changes" comment="naukri gulf needs to be updated, need to fix credentials file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulf.py" beforeDir="false" afterPath="$PROJECT_DIR$/gulf.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,16 +46,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.gulf.executor": "Run",
-    "Python.main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "run.code.analysis.last.selected.profile": "aDefault"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.gulf.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;aDefault&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/.venv" />
@@ -245,7 +246,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735152687048</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="naukri gulf needs to be updated, need to fix credentials file">
+      <option name="closed" value="true" />
+      <created>1735328161100</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1735328161100</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -269,6 +278,7 @@
     <MESSAGE value="resume upload working, need to fix credentials file" />
     <MESSAGE value="added for naukri gulf, need to fix credentials file" />
     <MESSAGE value="naukri gulneeds to be updatedf, need to fix credentials file" />
-    <option name="LAST_COMMIT_MESSAGE" value="naukri gulneeds to be updatedf, need to fix credentials file" />
+    <MESSAGE value="naukri gulf needs to be updated, need to fix credentials file" />
+    <option name="LAST_COMMIT_MESSAGE" value="naukri gulf needs to be updated, need to fix credentials file" />
   </component>
 </project>

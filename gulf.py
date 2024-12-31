@@ -24,12 +24,8 @@ password = driver.find_element(By.ID, "loginPassword")
 if password:
     # password.clear()
     password.send_keys(config.password)
-    # driver.find_element(By.ID,'loginPageLoginSubmit').send_keys(Keys.RETURN)
-    # password.send_keys(Keys.RETURN)
-    time.sleep(5)
-    login_form = driver.find_element(By.ID, 'loginPageLoginSubmit')
-    driver.execute_script("arguments[0].submit();", login_form)
-
+    driver.find_element(By.ID,'loginPageLoginSubmit').send_keys(Keys.RETURN)
+    password.send_keys(Keys.RETURN)
     time.sleep(5)
 
 driver.quit()
