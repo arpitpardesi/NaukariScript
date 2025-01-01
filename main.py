@@ -92,6 +92,8 @@ user = config.username
 pwd = config.password
 options = Options()
 driver = webdriver.Chrome(options=options, service=Service(ChromeDriverManager().install()))
+# driver = webdriver.Chrome("/usr/lib/chromium-browser/chromedriver")
+
 
 naukri()
 # naukriGulf()
