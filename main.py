@@ -56,6 +56,17 @@ def uploadCV(siteConfig):
             print("Unable to find the Resume upload input field!")
 
 
+def editProfile():
+    edit_button = driver.find_element(By.XPATH,
+                                      '//span[text()="Resume headline"]/following-sibling::span')  # Adjust XPATH if needed
+    edit_button.click()
+    time.sleep(3)
+    save = driver.find_element(By.XPATH,
+                                      '//button[text()="Save"]')
+    save.click()
+    time.sleep(3)
+
+
 def naukri():
     siteConfig = {"url": "https://www.naukri.com/nlogin/login",
                   "cv": "/Users/arpitpardesi/Naukri.com Resume/India/resume_arpit.pdf",
@@ -67,8 +78,8 @@ def naukri():
 
     loginNaukri(config=config, siteConfig=siteConfig)
     navigateProfile(profileUrl=siteConfig.get("profileUrl"))
-    uploadCV(siteConfig=siteConfig)
-
+    # uploadCV(siteConfig=siteConfig)
+    editProfile()
     driver.quit()
 
 

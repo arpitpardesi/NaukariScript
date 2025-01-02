@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c3d21fe6-fc90-4b57-9df6-88d1995fa59e" name="Changes" comment="naukri gulf needs to be updated, need to fix credentials file">
+    <list default="true" id="c3d21fe6-fc90-4b57-9df6-88d1995fa59e" name="Changes" comment="added chromium driver support">
+      <change beforePath="$PROJECT_DIR$/.idea/NaukariScript.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/NaukariScript.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -260,7 +263,31 @@
       <option name="project" value="LOCAL" />
       <updated>1735644993285</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="added requirements.txt">
+      <option name="closed" value="true" />
+      <created>1735739586832</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1735739586832</updated>
+    </task>
+    <task id="LOCAL-00025" summary="added requirements.txt">
+      <option name="closed" value="true" />
+      <created>1735739852970</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1735739852970</updated>
+    </task>
+    <task id="LOCAL-00026" summary="added chromium driver support">
+      <option name="closed" value="true" />
+      <created>1735743178188</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1735743178188</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -285,6 +312,8 @@
     <MESSAGE value="added for naukri gulf, need to fix credentials file" />
     <MESSAGE value="naukri gulneeds to be updatedf, need to fix credentials file" />
     <MESSAGE value="naukri gulf needs to be updated, need to fix credentials file" />
-    <option name="LAST_COMMIT_MESSAGE" value="naukri gulf needs to be updated, need to fix credentials file" />
+    <MESSAGE value="added requirements.txt" />
+    <MESSAGE value="added chromium driver support" />
+    <option name="LAST_COMMIT_MESSAGE" value="added chromium driver support" />
   </component>
 </project>
