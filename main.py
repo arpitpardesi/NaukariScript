@@ -78,7 +78,7 @@ def naukri():
 
     loginNaukri(config=config, siteConfig=siteConfig)
     navigateProfile(profileUrl=siteConfig.get("profileUrl"))
-    # uploadCV(siteConfig=siteConfig)
+    uploadCV(siteConfig=siteConfig)
     editProfile()
     driver.quit()
 
@@ -103,6 +103,7 @@ user = config.username
 pwd = config.password
 options = Options()
 driver = webdriver.Chrome(options=options, service=Service(ChromeDriverManager().install()))
+# driver = webdriver.Firefox()
 # driver = webdriver.Chrome("/usr/lib/chromium-browser/chromedriver")
 
 
