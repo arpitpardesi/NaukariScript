@@ -14,7 +14,7 @@ import config
 def loginNaukri(config, siteConfig):
     driver.get(siteConfig.get("url"))
     time.sleep(2)
-
+    print("Entering credentials")
     try:
         username = driver.find_element(By.ID, siteConfig.get('userID'))
         if username:
@@ -27,7 +27,9 @@ def loginNaukri(config, siteConfig):
             password.send_keys(config.password)
 
             password.send_keys(Keys.RETURN)
+            print("Logged in successfully")
             time.sleep(5)
+
             # if siteConfig['submitId']:
             #     submit = driver.find_element(By.ID, siteConfig.get("submitId"))
             #     if submit:
@@ -41,6 +43,8 @@ def loginNaukri(config, siteConfig):
 
 def navigateProfile(profileUrl):
     driver.get(profileUrl)
+
+    print("Navigated to the profile")
     time.sleep(2)
 
 
@@ -49,22 +53,27 @@ def uploadCV(siteConfig):
     # uploadCV = driver.find_element(By.ID, 'result')
     if uploadCV:
         try:
+            print("Uploading Resume")
             uploadCV.send_keys(siteConfig.get("cv"))
-            time.sleep(5)
+
             print(f"Resume uploaded successfully from {siteConfig.get('cv')}!")
+            time.sleep(5)
         except:
             print("Unable to find the Resume upload input field!")
 
 
 def editProfile():
+    print("Editing profile")
     edit_button = driver.find_element(By.XPATH,
                                       '//span[text()="Resume headline"]/following-sibling::span')  # Adjust XPATH if needed
     edit_button.click()
     time.sleep(3)
     save = driver.find_element(By.XPATH,
-                                      '//button[text()="Save"]')
+                               '//button[text()="Save"]')
     save.click()
+    print("Profile headline updated")
     time.sleep(3)
+
 
 
 def naukri():
@@ -104,7 +113,6 @@ pwd = config.password
 options = Options()
 driver = webdriver.Chrome(options=options, service=Service(ChromeDriverManager().install()))
 
-
 # Set up the WebDriver for Chromium (for Raspberry Pi)
 
 # options.add_argument("--headless")  # Runs Chrome in headless mode
@@ -113,6 +121,8 @@ driver = webdriver.Chrome(options=options, service=Service(ChromeDriverManager()
 # chrome_driver_path = '/usr/local/bin/chromedriver'  # Ensure chromedriver is in the correct path
 # service = Service(chrome_driver_path)
 # driver = webdriver.Chrome(service=service, options=options)
+
+print("Script initiated")
 
 naukri()
 # naukriGulf()
