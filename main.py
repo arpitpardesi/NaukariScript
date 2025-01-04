@@ -118,7 +118,7 @@ driver = webdriver.Chrome(options=options, service=Service(ChromeDriverManager()
 # options.add_argument("--headless")  # Runs Chrome in headless mode
 # options.add_argument("--disable-gpu")  # Disable GPU acceleration for headless mode
 # options.add_argument("--no-sandbox")  # Disable sandbox for compatibility
-# chrome_driver_path = '/usr/local/bin/chromedriver'  # Ensure chromedriver is in the correct path
+# chrome_driver_path = '/usr/bin/chromedriver'  # Ensure chromedriver is in the correct path
 # service = Service(chrome_driver_path)
 # driver = webdriver.Chrome(service=service, options=options)
 
