@@ -5,8 +5,11 @@ from selenium import webdriver
 from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.support.wait import WebDriverWait
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.support import expected_conditions as EC
+
 import time
 import config
 
@@ -50,6 +53,13 @@ def navigateProfile(profileUrl):
 
 def uploadCV(siteConfig):
     uploadCV = driver.find_element(By.ID, siteConfig.get('upload'))
+    # uploadCV = WebDriverWait(driver, 5).until(
+    #     EC.presence_of_element_located((By.ID, siteConfig.get('upload')))
+    # )
+
+    # uploadCV = WebDriverWait(driver, 20).until(
+    #     EC.presence_of_element_located((By.CSS_SELECTOR, '[id="attachCV"]'))
+    # )
     # uploadCV = driver.find_element(By.ID, 'result')
     if uploadCV:
         try:
@@ -57,6 +67,8 @@ def uploadCV(siteConfig):
             uploadCV.send_keys(siteConfig.get("cv"))
 
             print(f"Resume uploaded successfully from {siteConfig.get('cv')}!")
+
+
             time.sleep(5)
         except:
             print("Unable to find the Resume upload input field!")
@@ -111,6 +123,9 @@ def naukriGulf():
 user = config.username
 pwd = config.password
 options = Options()
+# options.add_argument("--headless")  # Runs Chrome in headless mode
+# options.add_argument("--disable-gpu")  # Disable GPU acceleration for headless mode
+# options.add_argument("--no-sandbox")  # Disable sandbox for compatibility
 driver = webdriver.Chrome(options=options, service=Service(ChromeDriverManager().install()))
 
 # Set up the WebDriver for Chromium (for Raspberry Pi)
