@@ -101,7 +101,7 @@ def naukri():
     navigateProfile(profileUrl=siteConfig.get("profileUrl"))
     uploadCV(siteConfig=siteConfig)
     editProfile()
-    driver.quit()
+    # driver.quit()
 
 
 def naukriGulf():
@@ -117,7 +117,7 @@ def naukriGulf():
     navigateProfile(profileUrl=siteConfig.get("profileUrl"))
     uploadCV(siteConfig=siteConfig)
 
-    driver.quit()
+    # driver.quit()
 
 
 user = config.username
@@ -137,9 +137,10 @@ driver = webdriver.Chrome(options=options, service=Service(ChromeDriverManager()
 # service = Service(chrome_driver_path)
 # driver = webdriver.Chrome(service=service, options=options)
 
-print("Script initiated")
-
+print("Script initiated for Naukri.com")
 naukri()
-# naukriGulf()
+
+print("Script initiated for NaukriGulf.com")
+naukriGulf()
 
 driver.quit()
