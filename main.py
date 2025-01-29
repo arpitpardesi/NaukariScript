@@ -140,7 +140,7 @@ driver = webdriver.Chrome(options=options, service=Service(ChromeDriverManager()
 print("Script initiated for Naukri.com")
 naukri()
 
-print("Script initiated for NaukriGulf.com")
-naukriGulf()
+# print("Script initiated for NaukriGulf.com")
+# naukriGulf()
 
 driver.quit()
