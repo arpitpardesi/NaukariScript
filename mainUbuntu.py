@@ -26,7 +26,7 @@ driver = webdriver.Chrome(service=service, options=options)
 
 def login_naukri(config, site_config):
     driver.get(site_config.get("url"))
-    time.sleep(2)
+    time.sleep(7)
     print("Entering credentials")
     try:
         username = driver.find_element(By.ID, site_config.get('userID'))
@@ -46,7 +46,7 @@ def login_naukri(config, site_config):
 def navigate_profile(profile_url):
     driver.get(profile_url)
     print("Navigated to the profile")
-    time.sleep(2)
+    time.sleep(5)
 
 
 def upload_cv(site_config):
@@ -70,11 +70,11 @@ def edit_profile():
             EC.element_to_be_clickable((By.XPATH, '//span[text()="Resume headline"]/following-sibling::span'))
         )
         edit_button.click()
-        time.sleep(3)
+        time.sleep(5)
         save = driver.find_element(By.XPATH, '//button[text()="Save"]')
         save.click()
         print("Profile headline updated")
-        time.sleep(3)
+        time.sleep(5ßß)
     except Exception as e:
         print(f"Error editing profile: {e}")
 
