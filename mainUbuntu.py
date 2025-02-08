@@ -74,7 +74,7 @@ def edit_profile():
         save = driver.find_element(By.XPATH, '//button[text()="Save"]')
         save.click()
         print("Profile headline updated")
-        time.sleep(5ßß)
+        time.sleep(5)
     except Exception as e:
         print(f"Error editing profile: {e}")
 
