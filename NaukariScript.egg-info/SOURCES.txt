@@ -1,7 +1,0 @@
-config.py
-main.py
-setup.py
-NaukariScript.egg-info/PKG-INFO
-NaukariScript.egg-info/SOURCES.txt
-NaukariScript.egg-info/dependency_links.txt
-NaukariScript.egg-info/top_level.txt
