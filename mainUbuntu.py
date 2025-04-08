@@ -82,7 +82,7 @@ def edit_profile():
 def naukri():
     site_config = {
         "url": "https://www.naukri.com/nlogin/login",
-        "cv": "/home/pi/Naukri/resume_arpit.pdf",  # Adjusted path for Raspberry Pi
+        "cv": "/home/aaa-pi/Documents/Naukri.com Resume/India/resume_arpit.pdf",  # Adjusted path for Raspberry Pi
         "profileUrl": "https://www.naukri.com/mnjuser/profile",
         "userID": "usernameField",
         "passID": "passwordField",
