@@ -1,88 +1,92 @@
 import os
 import time
-import config
+import logging
+from contextlib import nullcontext
+
 from selenium import webdriver
+from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.chrome.options import Options
+from webdriver_manager.chrome import ChromeDriverManager
 
-# Path to ChromeDriver on Raspberry Pi
-CHROME_DRIVER_PATH = "/usr/bin/chromedriver"
+import config
 
-# Configure Chrome options for Raspberry Pi
-options = Options()
-# options.add_argument("--headless")  # Run in headless mode (no GUI)
-options.add_argument("--disable-gpu")  # Disable GPU (fixes errors in headless mode)
-options.add_argument("--no-sandbox")  # Bypass OS security model
-options.add_argument("--disable-dev-shm-usage")  # Avoid shared memory issues
+# ------------------- Logging Setup -------------------
 
-# Initialize WebDriver
-service = Service(CHROME_DRIVER_PATH)
-driver = webdriver.Chrome(service=service, options=options)
+logging.basicConfig(
+    filename='naukri_resume_uploader.log',
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
 
+# ------------------- Function Definitions -------------------
 
-def login_naukri(config, site_config):
-    driver.get(site_config.get("url"))
-    time.sleep(7)
-    print("Entering credentials")
+def loginNaukri(config, siteConfig):
+    logging.info("Navigating to login page.")
+    driver.get(siteConfig.get("url"))
+    time.sleep(2)
+    logging.info("Entering credentials.")
+
     try:
-        username = driver.find_element(By.ID, site_config.get('userID'))
+        username = driver.find_element(By.ID, siteConfig.get('userID'))
         if username:
             username.send_keys(config.username)
+            logging.info("Entered username.")
 
-        password = driver.find_element(By.ID, site_config.get("passID"))
+        password = driver.find_element(By.ID, siteConfig.get("passID"))
         if password:
             password.send_keys(config.password)
             password.send_keys(Keys.RETURN)
-            print("Logged in successfully")
+            logging.info("Password entered and login submitted.")
             time.sleep(5)
     except Exception as e:
-        print(f"Login failed: {e}")
+        logging.error(f"Login failed: {e}")
 
 
-def navigate_profile(profile_url):
-    driver.get(profile_url)
-    print("Navigated to the profile")
-    time.sleep(5)
-
-
-def upload_cv(site_config):
+def navigateProfile(profileUrl):
     try:
-        upload_cv = WebDriverWait(driver, 10).until(
-            EC.presence_of_element_located((By.ID, site_config.get('upload')))
-        )
-        if upload_cv:
-            print("Uploading Resume")
-            upload_cv.send_keys(site_config.get("cv"))
-            print(f"Resume uploaded successfully from {site_config.get('cv')}!")
+        driver.get(profileUrl)
+        logging.info(f"Navigated to profile URL: {profileUrl}")
+        time.sleep(2)
+    except Exception as e:
+        logging.error(f"Error navigating to profile: {e}")
+
+
+def uploadCV(siteConfig):
+    try:
+        uploadCV = driver.find_element(By.ID, siteConfig.get('upload'))
+        if uploadCV:
+            logging.info("Uploading resume.")
+            uploadCV.send_keys(siteConfig.get("cv"))
+            logging.info(f"Resume uploaded from {siteConfig.get('cv')}")
             time.sleep(5)
     except Exception as e:
-        print(f"Unable to upload resume: {e}")
+        logging.error(f"Failed to upload resume: {e}")
 
 
-def edit_profile():
+def editProfile():
+    logging.info("Editing profile headline.")
     try:
-        print("Editing profile")
-        edit_button = WebDriverWait(driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, '//span[text()="Resume headline"]/following-sibling::span'))
-        )
+        edit_button = driver.find_element(By.XPATH,
+            '//span[text()="Resume headline"]/following-sibling::span')
         edit_button.click()
-        time.sleep(5)
+        time.sleep(3)
+
         save = driver.find_element(By.XPATH, '//button[text()="Save"]')
         save.click()
-        print("Profile headline updated")
-        time.sleep(5)
+        logging.info("Profile headline updated successfully.")
+        time.sleep(3)
     except Exception as e:
-        print(f"Error editing profile: {e}")
+        logging.error(f"Error while editing profile: {e}")
 
 
 def naukri():
-    site_config = {
+    siteConfig = {
         "url": "https://www.naukri.com/nlogin/login",
-        "cv": "/home/aaa-pi/Documents/Naukri.com Resume/India/resume_arpit.pdf",  # Adjusted path for Raspberry Pi
+        "cv": "/Users/arpitpardesi/Naukri.com Resume/India/resume_arpit.pdf",
         "profileUrl": "https://www.naukri.com/mnjuser/profile",
         "userID": "usernameField",
         "passID": "passwordField",
@@ -90,13 +94,46 @@ def naukri():
         "submitId": ""
     }
 
-    login_naukri(config, site_config)
-    navigate_profile(profile_url=site_config.get("profileUrl"))
-    upload_cv(site_config=site_config)
-    edit_profile()
+    loginNaukri(config=config, siteConfig=siteConfig)
+    navigateProfile(siteConfig.get("profileUrl"))
+    uploadCV(siteConfig=siteConfig)
+    editProfile()
 
 
-print("Script initiated for Naukri.com")
-naukri()
+def naukriGulf():
+    siteConfig = {
+        "url": "https://www.naukrigulf.com/jobseeker/login",
+        "cv": "/Users/arpitpardesi/Naukri.com Resume/Abroad/resume_arpit.pdf",
+        "profileUrl": "https://www.naukrigulf.com/mnj/userProfile/myCV",
+        "userID": "loginPageLoginEmail",
+        "passID": "loginPassword",
+        "submitId": "loginPageLoginSubmit",
+        "upload": "resumeSection"
+    }
 
-driver.quit()
+    loginNaukri(config=config, siteConfig=siteConfig)
+    navigateProfile(siteConfig.get("profileUrl"))
+    uploadCV(siteConfig=siteConfig)
+
+# ------------------- Script Entry Point -------------------
+
+try:
+    user = config.username
+    pwd = config.password
+    options = Options()
+    # options.add_argument("--headless")
+    driver = webdriver.Chrome(options=options, service=Service(ChromeDriverManager().install()))
+    logging.info("Chrome WebDriver initialized successfully.")
+
+    logging.info("Script initiated for Naukri.com")
+    naukri()
+
+    # Uncomment to use for NaukriGulf
+    # logging.info("Script initiated for NaukriGulf.com")
+    # naukriGulf()
+
+except Exception as e:
+    logging.critical(f"Fatal error occurred: {e}")
+finally:
+    driver.quit()
+    logging.info("WebDriver closed. Script execution finished.")
