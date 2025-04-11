@@ -22,6 +22,7 @@ logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
 
+
 # ------------------- Function Definitions -------------------
 
 def loginNaukri(config, siteConfig):
@@ -71,7 +72,7 @@ def editProfile():
     logging.info("Editing profile headline.")
     try:
         edit_button = driver.find_element(By.XPATH,
-            '//span[text()="Resume headline"]/following-sibling::span')
+                                          '//span[text()="Resume headline"]/following-sibling::span')
         edit_button.click()
         time.sleep(3)
 
@@ -115,25 +116,21 @@ def naukriGulf():
     navigateProfile(siteConfig.get("profileUrl"))
     uploadCV(siteConfig=siteConfig)
 
-# ------------------- Script Entry Point -------------------
+    # ------------------- Script Entry Point -------------------
 
-try:
-    user = config.username
-    pwd = config.password
-    options = Options()
-    # options.add_argument("--headless")
-    driver = webdriver.Chrome(options=options, service=Service(ChromeDriverManager().install()))
-    logging.info("Chrome WebDriver initialized successfully.")
+user = config.username
+pwd = config.password
+options = Options()
+# options.add_argument("--headless")
+driver = webdriver.Chrome(options=options, service=Service(ChromeDriverManager().install()))
+logging.info("Chrome WebDriver initialized successfully.")
 
-    logging.info("Script initiated for Naukri.com")
-    naukri()
+logging.info("Script initiated for Naukri.com")
+naukri()
 
-    # Uncomment to use for NaukriGulf
-    # logging.info("Script initiated for NaukriGulf.com")
-    # naukriGulf()
+# Uncomment to use for NaukriGulf
+# logging.info("Script initiated for NaukriGulf.com")
+# naukriGulf()
 
-except Exception as e:
-    logging.critical(f"Fatal error occurred: {e}")
-finally:
-    driver.quit()
-    logging.info("WebDriver closed. Script execution finished.")
+driver.quit()
+logging.info("WebDriver closed. Script execution finished.")
