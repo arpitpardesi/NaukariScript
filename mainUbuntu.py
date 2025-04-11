@@ -127,3 +127,4 @@ naukri()
 
 driver.quit()
 logging.info("WebDriver closed. Script execution finished.")
+logging.info("-------------------------------------------------------------------------------------------------------------------")
