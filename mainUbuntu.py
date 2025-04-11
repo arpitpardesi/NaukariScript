@@ -33,6 +33,7 @@ driver = webdriver.Chrome(service=service, options=options)
 logging.info("Chrome WebDriver initialized successfully.")
 logging.info("Script initiated for Naukri.com")
 
+
 def login_naukri(config, site_config):
     logging.info("Navigating to login page.")
     driver.get(site_config.get("url"))
@@ -66,6 +67,7 @@ def navigate_profile(profile_url):
     except Exception as e:
         logging.error(f"Error navigating to profile: {e}")
 
+
 def upload_cv(site_config):
     try:
         upload_cv = WebDriverWait(driver, 10).until(
@@ -76,11 +78,12 @@ def upload_cv(site_config):
             logging.info("Uploading resume.")
             upload_cv.send_keys(site_config.get("cv"))
             print(f"Resume uploaded successfully from {site_config.get('cv')}!")
-            logging.info(f"Resume uploaded from {siteConfig.get('cv')}")
+            logging.info(f"Resume uploaded from {site_config.get('cv')}")
             time.sleep(5)
     except Exception as e:
         print(f"Unable to upload resume: {e}")
         logging.error(f"Failed to upload resume: {e}")
+
 
 def edit_profile():
     logging.info("Editing profile headline.")
