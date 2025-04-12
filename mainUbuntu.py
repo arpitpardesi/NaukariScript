@@ -10,7 +10,6 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from tempfile import mkdtemp
 
 logging.basicConfig(
     filename='naukri_resume_uploader.log',
@@ -24,7 +23,6 @@ CHROME_DRIVER_PATH = "/usr/bin/chromedriver"
 # Configure Chrome options for Raspberry Pi
 options = Options()
 # options.add_argument("--headless")  # Run in headless mode (no GUI)
-options.add_argument(f"--user-data-dir={mkdtemp()}")
 options.add_argument("--disable-gpu")  # Disable GPU (fixes errors in headless mode)
 options.add_argument("--no-sandbox")  # Bypass OS security model
 options.add_argument("--disable-dev-shm-usage")  # Avoid shared memory issues
