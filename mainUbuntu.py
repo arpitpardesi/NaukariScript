@@ -10,6 +10,11 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+import shutil
+import tempfile
+
+temp_user_data_dir = tempfile.mkdtemp()
+
 
 logging.basicConfig(
     filename='naukri_resume_uploader.log',
@@ -32,6 +37,7 @@ service = Service(CHROME_DRIVER_PATH)
 driver = webdriver.Chrome(service=service, options=options)
 logging.info("Chrome WebDriver initialized successfully.")
 logging.info("Script initiated for Naukri.com")
+options.add_argument(f"--user-data-dir={temp_user_data_dir}")
 
 
 def login_naukri(config, site_config):
@@ -126,6 +132,7 @@ logging.info("Script initiated for Naukri.com")
 naukri()
 
 driver.quit()
+shutil.rmtree(temp_user_data_dir)
 logging.info("WebDriver closed. Script execution finished.")
 logging.info(
     "-------------------------------------------------------------------------------------------------------------------")
