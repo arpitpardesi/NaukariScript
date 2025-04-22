@@ -90,7 +90,7 @@ def editProfile():
 
 def naukri():
     siteConfig = {"url": "https://www.naukri.com/nlogin/login",
-                  "cv": "/Users/arpitpardesi/Naukri.com Resume/India/resume_arpit.pdf",
+                  "cv": "/Users/arpitpardesi/Naukri.com Resume/India/resume_arpit v2.pdf",
                   "profileUrl": "https://www.naukri.com/mnjuser/profile",
                   "userID": "usernameField",
                   "passID": "passwordField",
